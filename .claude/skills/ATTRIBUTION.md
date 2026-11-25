@@ -1,7 +1,7 @@
 # Third-party skills: attribution and licenses
 
 This file was written for AF-EtMart. It is not part of either upstream project.
-The two skill folders next to it are unmodified copies. Retrieved 2026-11-25.
+`frontend-design/` and `react-best-practices/` are unmodified copies, retrieved 2026-11-25.
 
 ## frontend-design
 

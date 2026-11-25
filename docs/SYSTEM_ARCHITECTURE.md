@@ -27,7 +27,7 @@ One single-page app and one modular API (a modular monolith). Serving both from 
 | A5 | Access token in memory, rotating refresh cookie | Limits token theft | Refresh handling in client |
 | A6 | SQL through repositories using `pg` | Transparent, few dependencies | Hand-written queries |
 | A7 | Providers behind adapters | Payment and storage undecided | Small abstraction |
-| A8 | Hosting able to keep personal data in Ethiopia | Proclamation 1321/2024 Art. 22 | Fewer hosting choices |
+| A8 | Defense: Vercel frontend, Render backend, fake data only (hosts confirmed) | Fast to deploy | Hosting must be reviewed before real users (Proclamation 1321/2024 Art. 22) |
 
 ## 3. Repository layout
 
@@ -177,6 +177,15 @@ Tools are proposed and not installed: Vitest, React Testing Library, Supertest, 
 
 Run lint, tests and build in GitHub Actions on pull requests.
 
-## 9. Deployment and operations *(open)*
+## 9. Deployment and operations
 
-Hosting is undecided (see [open decisions](DEVELOPMENT_ROADMAP.md#open-project-decisions)). Requirements: separate development and production configuration, HTTPS, in-country personal data storage subject to legal confirmation, automated backups, health endpoint, error logs. Development and staging should use fake data only.
+**Defense (hosts confirmed):** frontend on Vercel, API on Render. Render Postgres is suggested.
+
+- Add a Vercel rewrite from `/api/*` to the Render API, so the browser sees one origin and the refresh cookie works. The "reverse proxy" in the overview is this rewrite.
+- The API accepts the Vercel site's origin for cookie requests. Configure proxy trust carefully and verify that rate limiting sees real client addresses. The Render URL stays publicly reachable, so it enforces all security itself.
+- Add a rewrite so client-side routes load `index.html`.
+- Do not store uploads on Render's filesystem; use the storage adapter (decision D9).
+- Free-tier sleep and database expiry limits are listed in the [roadmap risks](DEVELOPMENT_ROADMAP.md#4-risks-and-hosting).
+- Use fake data only.
+
+**Real launch (open):** requires legal confirmation of data location, plans that permit commercial use, separate production configuration, backups with a tested restore, error logs and a health check. Personal data would otherwise pass through and be stored on foreign services.

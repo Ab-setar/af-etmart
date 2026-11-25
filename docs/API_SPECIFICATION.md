@@ -2,6 +2,8 @@
 
 > Status: **draft contract**. No endpoint exists yet.
 
+The defense release implements only the endpoints needed by the [defense plan](DEVELOPMENT_ROADMAP.md#2-defense-release-plan); the rest are for later.
+
 ## Conventions
 
 - Base path `/api/v1`; JSON with `camelCase` fields; uploads use `multipart/form-data`.

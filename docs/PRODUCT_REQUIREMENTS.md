@@ -110,6 +110,12 @@ Priority: **M** = MVP, **P** = postponed.
 | FR-20 | Email or SMS notifications and self-service password reset | P unless a provider is chosen |
 | FR-21 | Coupons, wishlists, chat, recommendations, courier tracking, native apps | P |
 
+### Defense release *(proposed scope)*
+
+"M" above describes the launch MVP. The solo four-week defense release is smaller: FR-01 without password change; FR-02 delivery address only; FR-03; a basic FR-04; FR-05 as seeded categories; FR-06 with one image; basic FR-07; FR-08 to FR-12; and suspension only from FR-15. FR-13 is limited to cancelling a pending order; return requests wait. FR-14 waits. Document upload waits. See the [roadmap](DEVELOPMENT_ROADMAP.md#2-defense-release-plan).
+
+Confirmed: cash on delivery only, and sellers deliver within one city. The release uses fake data and is not ready for real customers.
+
 ## 8. Non-functional requirements *(proposed targets)*
 
 | Area | Requirement |

@@ -2,6 +2,8 @@
 
 > Status: **design only**. No migrations or SQL have been created or run, so nothing here is verified against a database.
 
+For the defense release, build only the tables needed by the [defense plan](DEVELOPMENT_ROADMAP.md#2-defense-release-plan): omit `payment_events`, `return_requests`, `reviews` and `audit_logs` until later.
+
 ## 1. Conventions
 
 - `PK` = `BIGINT GENERATED ALWAYS AS IDENTITY` unless stated.
